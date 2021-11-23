@@ -59,7 +59,10 @@ void setup() {
 
   while(1){
     Serial.println("\n************** START ****************");
-    wifi_setup(SECRET_SSID, SECRET_PASSWORD, DISCONNECT_FIRST, ".", 50);
+    String ssid = SECRET_SSID;
+    char charBuf[50];
+    ssid.toCharArray(charBuf, 50);
+    wifi_setup(charBuf, SECRET_PASSWORD, DISCONNECT_FIRST, ".", 50);
     delay(1000);
     wifi_setup(SECRET_SSID2, SECRET_PASSWORD2, DISCONNECT_FIRST, ",", 50);
     break;
